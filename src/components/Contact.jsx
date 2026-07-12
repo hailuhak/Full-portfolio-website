@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -21,29 +22,69 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-      setStatus({ submitting: false, success: false, error: 'Please fill in all fields.' });
-      return;
-    }
+const handleSubmit = async (e) => {
+   e.preventDefault();
 
-    setStatus({ submitting: true, success: false, error: null });
-
-    setTimeout(() => {
+   // Check if all fields are filled
+   if (
+      !formData.name.trim() ||
+      !formData.email.trim() ||
+      !formData.subject.trim() ||
+      !formData.message.trim()
+   ) {
       setStatus({
-        submitting: false,
-        success: true,
-        error: null
+         submitting: false,
+         success: false,
+         error: 'Please fill in all fields.',
       });
+      return;
+   }
+
+   setStatus({
+      submitting: true,
+      success: false,
+      error: null,
+   });
+
+   try {
+     const templateParams = {
+  project: "Hailu Kassa Portfolio",
+  name: formData.name,
+  email: formData.email,
+  subject: formData.subject,
+  message: formData.message,
+};
+
+      await emailjs.send(
+         import.meta.env.VITE_EMAILJS_SERVICE_ID,
+         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+         templateParams,
+         import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      );
+
+      setStatus({
+         submitting: false,
+         success: true,
+         error: null,
+      });
+
+      // Clear the form
       setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
+         name: '',
+         email: '',
+         subject: '',
+         message: '',
       });
-    }, 2000);
-  };
+   } catch (error) {
+      console.error('EmailJS Error:', error);
+
+      setStatus({
+         submitting: false,
+         success: false,
+         error: 'Failed to send message. Please try again later.',
+      });
+   }
+};
 
   return (
     <section id="contact" className="relative py-24 border-t border-slate-900 bg-slate-950/20 overflow-hidden">

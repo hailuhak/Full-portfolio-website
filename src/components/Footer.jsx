@@ -11,12 +11,12 @@ const Footer = () => {
       },
       {
          name: 'LinkedIn',
-         url: 'https://linkedin.com/in/hailukassa',
+         url: 'https://www.linkedin.com/in/hailu-kassa-87182a377/',
          icon: 'bi-linkedin',
       },
       {
          name: 'Facebook',
-         url: 'https://facebook.com/hailukassa',
+         url: 'https://web.facebook.com/profile',
          icon: 'bi-facebook',
       },
       {
@@ -26,8 +26,13 @@ const Footer = () => {
       },
       {
          name: 'TikTok',
-         url: 'https://tiktok.com/@hailukassa',
+         url: 'https://tiktok.com/@hailuhak',
          icon: 'bi-tiktok',
+      },
+      {
+         name: 'Telegram',
+         url: 'https://t.me/GC_podcast',
+         icon: 'bi-telegram',
       },
    ];
 
