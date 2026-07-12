@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+/* Third party library CSS */
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+@import 'aos/dist/aos.css';
+@import 'glightbox/dist/css/glightbox.min.css';
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
+/* Font and theme configurations */
+:root {
+  --font-sans: 'Roboto', 'Segoe UI', system-ui, sans-serif;
+  --font-heading: 'Raleway', 'Ubuntu', sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #0b0f19; /* Custom dark slate theme background */
+  color: #f1f5f9;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0f19;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #aa3bff;
+}
+
+/* Fix GLightbox styling conflicts in dark mode */
+.goverlay {
+  background: rgba(11, 15, 25, 0.95) !important;
+}
+
+/* Glow Background Circles */
+.glow-bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.15;
+}
