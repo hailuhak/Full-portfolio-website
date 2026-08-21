@@ -1,56 +1,156 @@
 @import "tailwindcss";
 
-/* Third party library CSS */
-@import 'bootstrap-icons/font/bootstrap-icons.css';
-@import 'aos/dist/aos.css';
-@import 'glightbox/dist/css/glightbox.min.css';
-@import 'swiper/css';
-@import 'swiper/css/navigation';
-@import 'swiper/css/pagination';
+/* =========================================
+   Third-party libraries
+========================================= */
 
-/* Font and theme configurations */
+@import "bootstrap-icons/font/bootstrap-icons.css";
+@import "aos/dist/aos.css";
+@import "glightbox/dist/css/glightbox.min.css";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
+
+/* =========================================
+   Fonts
+========================================= */
+
 :root {
-  --font-sans: 'Roboto', 'Segoe UI', system-ui, sans-serif;
-  --font-heading: 'Raleway', 'Ubuntu', sans-serif;
+  --font-sans: "Roboto", "Segoe UI", system-ui, sans-serif;
+  --font-heading: "Raleway", "Ubuntu", sans-serif;
+}
+
+
+/* =========================================
+   Global
+========================================= */
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  margin: 0;
+  padding: 0;
+
   font-family: var(--font-sans);
-  background-color: #0b0f19; /* Custom dark slate theme background */
-  color: #f1f5f9;
+
   overflow-x: hidden;
+
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease;
 }
 
-h1, h2, h3, h4, h5, h6 {
+
+/* =========================================
+   Headings
+========================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
 }
 
-/* Custom scrollbar */
+
+/* =========================================
+   Light Mode
+========================================= */
+
+body {
+  background-color: #ffffff;
+  color: #334155;
+}
+
+
+/* =========================================
+   Dark Mode
+   Soft / Faded Gray
+========================================= */
+
+.dark body {
+  background-color: #242424;
+  color: #eeeeee;
+}
+
+
+/* =========================================
+   Scrollbar - Light Mode
+========================================= */
+
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #0b0f19;
+  background: #f1f5f9;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #cbd5e1;
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #aa3bff;
+  background: #8b5cf6;
 }
 
-/* Fix GLightbox styling conflicts in dark mode */
+
+/* =========================================
+   Scrollbar - Dark Mode
+========================================= */
+
+.dark ::-webkit-scrollbar-track {
+  background: #242424;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #444444;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #8b5cf6;
+}
+
+
+/* =========================================
+   GLightbox
+========================================= */
+
 .goverlay {
-  background: rgba(11, 15, 25, 0.95) !important;
+  background: rgba(36, 36, 36, 0.95) !important;
 }
 
-/* Glow Background Circles */
+
+/* =========================================
+   Glow Background Circles
+========================================= */
+
 .glow-bg-circle {
   position: absolute;
+
   border-radius: 50%;
+
   filter: blur(120px);
+
   z-index: 0;
+
   pointer-events: none;
+
   opacity: 0.15;
+}
+
+
+/* =========================================
+   Selection
+========================================= */
+
+::selection {
+  background: rgba(139, 92, 246, 0.25);
+  color: inherit;
 }

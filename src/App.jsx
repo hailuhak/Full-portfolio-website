@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 
-// Import Components
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -14,92 +13,332 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
-  const [loading, setLoading] = useState(true);
-  const [showScrollTop, setShowScrollTop] = useState(false);
+   const [loading, setLoading] = useState(true);
+   const [showScrollTop, setShowScrollTop] = useState(false);
 
-  useEffect(() => {
-    // Initialize AOS
-    AOS.init({
-      duration: 600,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
-    });
+   // ==============================
+   // LOAD SAVED THEME
+   // ==============================
+   const [darkMode, setDarkMode] = useState(() => {
+      const savedTheme = localStorage.getItem('portfolio-theme');
 
-    // Remove preloader
-    const preloaderTimeout = setTimeout(() => {
-      setLoading(false);
-    }, 600);
+      return savedTheme === 'dark';
+   });
 
-    // Scroll top visibility listener
-    const handleScroll = () => {
-      if (window.scrollY > 200) {
-        setShowScrollTop(true);
+   // ==============================
+   // INITIALIZE AOS + SCROLL
+   // ==============================
+   useEffect(() => {
+      AOS.init({
+         duration: 600,
+         easing: 'ease-in-out',
+         once: true,
+         mirror: false,
+      });
+
+      // Preloader
+      const preloaderTimeout = setTimeout(() => {
+         setLoading(false);
+      }, 600);
+
+      // Scroll listener
+      const handleScroll = () => {
+         setShowScrollTop(window.scrollY > 200);
+      };
+
+      window.addEventListener('scroll', handleScroll);
+
+      return () => {
+         clearTimeout(preloaderTimeout);
+         window.removeEventListener('scroll', handleScroll);
+      };
+   }, []);
+
+   // ==============================
+   // APPLY THEME
+   // ==============================
+   useEffect(() => {
+      const root = document.documentElement;
+      const body = document.body;
+
+      if (darkMode) {
+         // Add dark class
+         root.classList.add('dark');
+
+         // Body colors
+         body.classList.remove('bg-slate-50');
+         body.classList.add('bg-slate-800');
+
+         // Save preference
+         localStorage.setItem('portfolio-theme', 'dark');
       } else {
-        setShowScrollTop(false);
+         // Remove dark class
+         root.classList.remove('dark');
+
+         // Body colors
+         body.classList.remove('bg-slate-800');
+         body.classList.add('bg-slate-50');
+
+         // Save preference
+         localStorage.setItem('portfolio-theme', 'light');
       }
-    };
+   }, [darkMode]);
 
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      clearTimeout(preloaderTimeout);
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+   // ==============================
+   // TOGGLE THEME
+   // ==============================
+   const toggleTheme = () => {
+      setDarkMode((previousMode) => !previousMode);
+   };
 
-  const scrollToTop = (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
+   // ==============================
+   // SCROLL TO TOP
+   // ==============================
+   const scrollToTop = (event) => {
+      event.preventDefault();
 
-  return (
-    <div className="bg-[#0b0f19] min-h-screen text-slate-100 selection:bg-violet-500/30 selection:text-white">
-      
-      {/* Preloader */}
-      {loading && (
-        <div className="fixed inset-0 bg-[#0b0f19] flex flex-col items-center justify-center z-[99999] transition-all duration-500">
-          <div className="relative w-16 h-16">
-            <div className="absolute inset-0 rounded-full border-4 border-slate-800"></div>
-            <div className="absolute inset-0 rounded-full border-4 border-t-violet-500 border-r-fuchsia-500 animate-spin"></div>
-          </div>
-          <span className="text-xs font-semibold tracking-widest text-slate-450 uppercase mt-4 animate-pulse">Loading Portfolio</span>
-        </div>
-      )}
+      window.scrollTo({
+         top: 0,
+         behavior: 'smooth',
+      });
+   };
 
-      {/* Navigation Menu */}
-      <Header />
+   // ==============================
+   // MAIN THEME
+   // ==============================
+   const themeClasses = darkMode
+      ? 'bg-slate-800 text-slate-100'
+      : 'bg-slate-50 text-slate-700';
 
-      {/* Main Content Area - Shifted left margin on desktop to account for w-72 sidebar */}
-      <div className="lg:ml-72 min-h-screen flex flex-col justify-between relative z-10">
-        <main className="flex-grow">
-          <Hero />
-          <About />
-          <Skills />
-          <Resume />
-          <Portfolio />
-          <Services />
-          <Testimonials />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
-
-      {/* Scroll Top Button */}
-      <button 
-        onClick={scrollToTop}
-        className={`fixed bottom-6 right-6 w-12 h-12 rounded-xl bg-violet-600/90 hover:bg-violet-500 hover:scale-105 active:scale-95 text-white flex items-center justify-center shadow-lg shadow-violet-600/20 backdrop-blur-md z-40 transition-all duration-300 transform border-0 cursor-pointer
-          ${showScrollTop ? 'translate-y-0 opacity-100 pointer-events-auto' : 'translate-y-12 opacity-0 pointer-events-none'}
-        `}
-        aria-label="Scroll back to top"
+   return (
+      <div
+         className={`
+        min-h-screen
+        transition-colors
+        duration-500
+        ${themeClasses}
+      `}
       >
-        <i className="bi bi-arrow-up-short text-2xl"></i>
-      </button>
+         {/* =====================================
+          PRELOADER
+      ====================================== */}
+         {loading && (
+            <div
+               className={`
+            fixed
+            inset-0
+            z-[99999]
+            flex
+            flex-col
+            items-center
+            justify-center
+            transition-colors
+            duration-500
+            ${darkMode ? 'bg-slate-800' : 'bg-slate-50'}
+          `}
+            >
+               {/* Spinner */}
+               <div className='relative w-16 h-16'>
+                  {/* Outer ring */}
+                  <div
+                     className={`
+                absolute
+                inset-0
+                rounded-full
+                border-4
+                ${darkMode ? 'border-slate-600' : 'border-slate-200'}
+              `}
+                  />
 
-    </div>
-  );
+                  {/* Animated ring */}
+                  <div
+                     className='
+                absolute
+                inset-0
+                rounded-full
+                border-4
+                border-t-violet-500
+                border-r-fuchsia-500
+                animate-spin
+              '
+                  />
+               </div>
+
+               {/* Loading text */}
+               <span
+                  className={`
+              mt-4
+              text-xs
+              font-semibold
+              tracking-widest
+              uppercase
+              animate-pulse
+              ${darkMode ? 'text-slate-300' : 'text-slate-500'}
+            `}
+               >
+                  Loading Portfolio
+               </span>
+            </div>
+         )}
+
+         {/* =====================================
+          HEADER
+      ====================================== */}
+         <Header darkMode={darkMode} />
+
+         {/* =====================================
+          THEME TOGGLE
+      ====================================== */}
+         <button
+            type='button'
+            onClick={toggleTheme}
+            className={`
+          fixed
+          top-5
+          right-5
+          z-[9999]
+
+          w-11
+          h-11
+
+          rounded-full
+
+          flex
+          items-center
+          justify-center
+
+          border
+          shadow-md
+
+          transition-all
+          duration-300
+
+          hover:scale-105
+          active:scale-95
+
+          ${
+             darkMode
+                ? `
+                bg-slate-700
+                border-slate-500/60
+                text-yellow-300
+                hover:bg-slate-600
+              `
+                : `
+                bg-white
+                border-slate-200
+                text-slate-700
+                hover:bg-slate-100
+              `
+          }
+        `}
+            aria-label={
+               darkMode ? 'Switch to light mode' : 'Switch to dark mode'
+            }
+            title={darkMode ? 'Light Mode' : 'Dark Mode'}
+         >
+            <i
+               className={`
+            bi
+            text-lg
+            ${darkMode ? 'bi-sun-fill' : 'bi-moon-fill'}
+          `}
+            />
+         </button>
+
+         {/* =====================================
+          MAIN CONTENT
+      ====================================== */}
+         <div
+            className='
+          lg:ml-72
+          min-h-screen
+          flex
+          flex-col
+          justify-between
+          relative
+          z-10
+        '
+         >
+            <main className='flex-grow'>
+               <Hero darkMode={darkMode} />
+
+               <About darkMode={darkMode} />
+
+               <Skills darkMode={darkMode} />
+
+               <Resume darkMode={darkMode} />
+
+               <Portfolio darkMode={darkMode} />
+
+               <Services darkMode={darkMode} />
+
+               <Testimonials darkMode={darkMode} />
+
+               <Contact darkMode={darkMode} />
+            </main>
+
+            <Footer darkMode={darkMode} />
+         </div>
+
+         {/* =====================================
+          SCROLL TO TOP
+      ====================================== */}
+         <button
+            type='button'
+            onClick={scrollToTop}
+            className={`
+          fixed
+          bottom-6
+          right-6
+
+          w-11
+          h-11
+
+          rounded-xl
+
+          bg-violet-600/90
+          hover:bg-violet-500
+
+          hover:scale-105
+          active:scale-95
+
+          text-white
+
+          flex
+          items-center
+          justify-center
+
+          shadow-lg
+          shadow-violet-600/20
+
+          backdrop-blur-md
+
+          z-40
+
+          transition-all
+          duration-300
+
+          ${
+             showScrollTop
+                ? `
+                translate-y-0
+                opacity-100
+                pointer-events-auto
+              `
+                : `
+                translate-y-12
+                opacity-0
+                pointer-events-none
+              `
+          }
+        `}
+            aria-label='Scroll back to top'
+         >
+            <i className='bi bi-arrow-up-short text-2xl' />
+         </button>
+      </div>
+   );
 }
 
 export default App;

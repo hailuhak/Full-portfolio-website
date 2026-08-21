@@ -19,7 +19,8 @@
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "swiper": "^14.0.5",
-    "tailwindcss": "^4.3.2"
+    "tailwindcss": "^4.3.2",
+    "typed.js": "^3.0.0"
   },
   "devDependencies": {
     "@types/react": "^19.2.17",
