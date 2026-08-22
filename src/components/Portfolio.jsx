@@ -15,17 +15,17 @@ const Portfolio = ({ darkMode }) => {
  const projects = [
     {
        id: 1,
-       title: 'Collab Editor (SOON..',
+       title: 'Collab Editor',
        category: 'web',
        categoryLabel: 'Collaborative Web Application',
        year: '2026',
-       image: '/assets/img/profile/portfolio/portfolio-portrait-3.webp',
+       image: '/assets/img/profile/portfolio/collab.png',
        description:
           'A collaborative document editing application designed to allow users to create, manage, and work together on documents in real time.',
        details: {
           client: 'Personal Project',
           projectDate: '2026',
-          projectUrl: 'your-collab-editor-url.com',
+          projectUrl: 'collab-editor-1-cpco.onrender.com',
        },
     },
 
@@ -84,7 +84,7 @@ const Portfolio = ({ darkMode }) => {
        category: 'video',
        categoryLabel: 'Video Editing',
        year: '2026',
-       image: '/assets/img/profile/portfolio/image.png',
+       image: '/assets/img/profile/portfolio/img.png',
        description:
           'Short-form and long-form video editing for YouTube and TikTok, including transitions, captions, visual effects, and engaging social media content.',
        details: {
