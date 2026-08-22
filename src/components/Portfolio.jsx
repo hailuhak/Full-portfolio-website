@@ -7,110 +7,110 @@ const Portfolio = ({ darkMode }) => {
 
    const filters = [
       { label: 'All Work', value: '*' },
-      { label: 'Branding', value: 'branding' },
-      { label: 'Web Design', value: 'web' },
-      { label: 'Photography', value: 'photography' },
-      { label: 'Print Design', value: 'print' },
+      { label: 'Web Development', value: 'web' },
+      { label: 'Graphic Design', value: 'design' },
+      { label: 'Video Editing', value: 'video' },
    ];
 
-   const projects = [
-      {
-         id: 1,
-         title: 'Elemental Branding',
-         category: 'branding',
-         categoryLabel: 'Brand Identity',
-         year: '2024',
-         image: '/assets/img/profile/portfolio/portfolio-3.webp',
-         description:
-            'Comprehensive brand identity design focusing on natural elements and sustainable business practices.',
-         details: {
-            client: 'EcoLabs International',
-            projectDate: 'March 15, 2024',
-            projectUrl: 'www.ecolabs-branding.com',
-         },
-      },
+ const projects = [
+    {
+       id: 1,
+       title: 'Collab Editor (SOON..',
+       category: 'web',
+       categoryLabel: 'Collaborative Web Application',
+       year: '2026',
+       image: '/assets/img/profile/portfolio/portfolio-portrait-3.webp',
+       description:
+          'A collaborative document editing application designed to allow users to create, manage, and work together on documents in real time.',
+       details: {
+          client: 'Personal Project',
+          projectDate: '2026',
+          projectUrl: 'your-collab-editor-url.com',
+       },
+    },
 
-      {
-         id: 2,
-         title: 'Digital Workspace',
-         category: 'web',
-         categoryLabel: 'Web Application',
-         year: '2024',
-         image: '/assets/img/profile/portfolio/portfolio-7.webp',
-         description:
-            'Modern web application designed for remote collaboration with intuitive user experience and clean aesthetics.',
-         details: {
-            client: 'SyncSpace Technologies',
-            projectDate: 'January 20, 2024',
-            projectUrl: 'www.syncspace.work',
-         },
-      },
+    {
+       id: 2,
+       title: 'Personal Portfolio',
+       category: 'web',
+       categoryLabel: 'Web Development',
+       year: '2026',
+       image: '/assets/img/profile/portfolio/github1.jpg',
+       description:
+          'A responsive personal portfolio website showcasing my development projects, technical skills, design work, and professional journey.',
+       details: {
+          client: 'Personal Project',
+          projectDate: '2025',
+          projectUrl: 'hailukassa.vercel.app/',
+       },
+    },
 
-      {
-         id: 3,
-         title: 'Urban Narratives',
-         category: 'photography',
-         categoryLabel: 'Photography',
-         year: '2023',
-         image: '/assets/img/profile/portfolio/portfolio-portrait-3.webp',
-         description:
-            'Street photography series capturing the essence of metropolitan life and human connections.',
-         details: {
-            client: 'MetroArt Gallery',
-            projectDate: 'November 05, 2023',
-            projectUrl: 'www.metroart.gallery/urban',
-         },
-      },
+    {
+       id: 3,
+       title: 'Audit Training Management System',
+       category: 'web',
+       categoryLabel: 'Web Application',
+       year: '2025',
+       image: '/assets/img/profile/portfolio/atms.png',
+       description:
+          'A web-based training management system designed to manage courses, sessions, enrollments, feedback, grades, and training records.',
+       details: {
+          client: 'OFAG Internship Project',
+          projectDate: '2025',
+          projectUrl: 'atms-project-29933.web.app/',
+       },
+    },
 
-      {
-         id: 4,
-         title: 'Annual Report Design',
-         category: 'print',
-         categoryLabel: 'Editorial Design',
-         year: '2024',
-         image: '/assets/img/profile/portfolio/portfolio-9.webp',
-         description:
-            'Sophisticated annual report combining data visualization with compelling storytelling and premium print finishes.',
-         details: {
-            client: 'Vanguard Holdings',
-            projectDate: 'April 12, 2024',
-            projectUrl: 'www.vanguardholdings.com/annual-2024',
-         },
-      },
+    {
+       id: 4,
+       title: 'Social Media Designs',
+       category: 'design',
+       categoryLabel: 'Graphic Design',
+       year: '2026',
+       image: '/assets/img/profile/portfolio/tub2.png',
+       description:
+          'A collection of social media graphics, promotional designs, posters, and digital content created for online platforms.',
 
-      {
-         id: 5,
-         title: 'Artisan Collection',
-         category: 'branding',
-         categoryLabel: 'Package Design',
-         year: '2023',
-         image: '/assets/img/profile/portfolio/portfolio-11.webp',
-         description:
-            'Luxury packaging design series celebrating traditional craftsmanship with a contemporary minimalist approach.',
-         details: {
-            client: 'Aura Goods',
-            projectDate: 'December 10, 2023',
-            projectUrl: 'www.auragoods.co/artisan',
-         },
-      },
+       details: {
+          client: 'Personal & Freelance Work',
+          projectDate: '2025',
+          projectUrl: '#',
+       },
+    },
 
-      {
-         id: 6,
-         title: 'Sustainable Commerce',
-         category: 'web',
-         categoryLabel: 'E-commerce',
-         year: '2024',
-         image: '/assets/img/profile/portfolio/portfolio-12.webp',
-         description:
-            'Eco-conscious e-commerce platform design promoting sustainable products with a seamless shopping experience.',
-         details: {
-            client: 'GreenGoods Retail',
-            projectDate: 'May 30, 2024',
-            projectUrl: 'www.greengoods-sustainable.com',
-         },
-      },
-   ];
+    {
+       id: 5,
+       title: 'YouTube & TikTok Content',
+       category: 'video',
+       categoryLabel: 'Video Editing',
+       year: '2026',
+       image: '/assets/img/profile/portfolio/image.png',
+       description:
+          'Short-form and long-form video editing for YouTube and TikTok, including transitions, captions, visual effects, and engaging social media content.',
+       details: {
+          client: 'Personal & Social Media Projects',
+          projectDate: '2026',
+          projectUrl:
+             'www.tiktok.com/@hailuhak/video/7619244413557968148',
+       },
+    },
 
+    {
+       id: 6,
+       title: 'Cybersecurity & Linux Learning',
+       category: 'web',
+       categoryLabel: 'Cybersecurity',
+       year: '2026',
+       image: '/assets/img/profile/portfolio/portfolio-9.webp',
+       description:
+          'Hands-on cybersecurity and Linux learning focused on networking, system administration, security fundamentals, and practical security skills.',
+       details: {
+          client: 'DEMERA Project',
+          projectDate: '2026',
+          projectUrl: '#',
+       },
+    },
+ ];
    useEffect(() => {
       const lightbox = GLightbox({
          selector: '.glightbox',
@@ -144,7 +144,6 @@ const Portfolio = ({ darkMode }) => {
 
          <div className='container mx-auto px-5 lg:px-10 relative z-10'>
             <div className='max-w-5xl mx-auto'>
-               {/* ================= SECTION HEADER ================= */}
                <div className='text-center mb-12' data-aos='fade-up'>
                   <span
                      className={`text-[11px] font-bold tracking-[0.2em] uppercase ${

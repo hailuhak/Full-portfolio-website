@@ -273,7 +273,7 @@ function App() {
 
                <Services darkMode={darkMode} />
 
-               <Testimonials darkMode={darkMode} />
+               {/* <Testimonials darkMode={darkMode} /> */}
 
                <Contact darkMode={darkMode} />
             </main>

@@ -24,6 +24,7 @@ const About = ({ darkMode }) => {
       'Prisma',
       'PostgreSQL',
       'Android',
+      'nextJs',
    ];
 
    const expertise = [
@@ -52,9 +53,9 @@ const About = ({ darkMode }) => {
       },
       {
          icon: 'bi-lightbulb',
-         title: 'Problem Solving',
+         title: 'graphics and video-editer',
          description:
-            'Turning real-world challenges into practical software solutions.',
+'Creating engaging short-form and long-form videos with clean edits, smooth transitions, effects, and eye-catching thumbnails that help content stand out.',
          color: darkMode
             ? 'bg-pink-500/10 text-pink-400'
             : 'bg-pink-50 text-pink-600',
@@ -89,20 +90,12 @@ const About = ({ darkMode }) => {
                {/* Section Header */}
                <div className='text-center mb-10' data-aos='fade-up'>
                   <span
-                     className={`text-[10px] font-bold tracking-[0.25em] uppercase ${
+                     className={`text-2xl font-bold  ${
                         darkMode ? 'text-violet-400' : 'text-violet-600'
                      }`}
                   >
                      About Me
                   </span>
-
-                  <h2
-                     className={`mt-2 text-2xl md:text-3xl font-bold tracking-tight ${
-                        darkMode ? 'text-white' : 'text-slate-900'
-                     }`}
-                  >
-                     A Little About Me
-                  </h2>
 
                   <div
                      className={`w-12 h-[2px] mx-auto mt-3 rounded-full ${
@@ -115,62 +108,131 @@ const About = ({ darkMode }) => {
                <div
                   className={`rounded-2xl border p-6 md:p-8 transition-colors duration-500 ${
                      darkMode
-                        ? 'bg-slate-900/50 border-slate-800'
+                        ? 'bg-slate-800/60 border-slate-700'
                         : 'bg-white border-slate-200 shadow-sm'
                   }`}
                   data-aos='fade-up'
                   data-aos-delay='100'
                >
-                  <div className='max-w-3xl mx-auto'>
+                  <div
+                     className={`max-w-3xl mx-auto text-sm md:text-base font-normal leading-7 ${
+                        darkMode ? 'text-slate-300' : 'text-slate-600'
+                     }`}
+                  >
                      {/* Introduction */}
-                     <p
-                        className={`text-sm md:text-base leading-7 ${
-                           darkMode ? 'text-slate-300' : 'text-slate-600'
-                        }`}
-                     >
-                        I am{' '}
-                        <span
-                           className={`font-semibold ${
-                              darkMode ? 'text-white' : 'text-slate-900'
+                     <p>
+                        Hello! My name is{' '}
+                        <em
+                           className={`${
+                              darkMode ? 'text-slate-100' : 'text-slate-900'
                            }`}
                         >
                            Hailu Kassa
-                        </span>
-                        , a Computer Science student and software developer
-                        passionate about building modern, practical, and
-                        user-focused applications. I enjoy transforming ideas
-                        and real-world problems into clean and reliable digital
-                        solutions, with a particular interest in{' '}
-                        <span
-                           className={`font-semibold ${
-                              darkMode ? 'text-violet-400' : 'text-violet-600'
+                        </em>
+                        , a Computer Science student and software developer from{' '}
+                        <em
+                           className={`${
+                              darkMode ? 'text-slate-100' : 'text-slate-900'
                            }`}
                         >
-                           web and Android development
-                        </span>
-                        .
+                           Bichena, East Gojam
+                        </em>
+                        . I was born and raised in{' '}
+                        <em
+                           className={`${
+                              darkMode ? 'text-slate-100' : 'text-slate-900'
+                           }`}
+                        >
+                           Endeshignt
+                        </em>
+                        , where I completed my primary, junior, and high school
+                        education.
                      </p>
 
-                     <p
-                        className={`mt-4 text-sm md:text-base leading-7 ${
-                           darkMode ? 'text-slate-400' : 'text-slate-600'
-                        }`}
-                     >
-                        My development journey has given me experience with both
-                        frontend and backend technologies. I work with modern
-                        tools such as React, JavaScript, Node.js, Express,
-                        Prisma, and PostgreSQL, while continuously expanding my
-                        knowledge through hands-on projects and problem solving.
+                     {/* Education */}
+                     <p className='mt-4'>
+                        My educational journey began at{' '}
+                        <em
+                           className={`${
+                              darkMode ? 'text-slate-100' : 'text-slate-900'
+                           }`}
+                        >
+                           Gatanis Primary School
+                        </em>
+                        , followed by my junior education at{' '}
+                        <em
+                           className={`${
+                              darkMode ? 'text-slate-100' : 'text-slate-900'
+                           }`}
+                        >
+                           Endeshignt and Enemay Primary School
+                        </em>
+                        . I completed my high school education at{' '}
+                        <em
+                           className={`${
+                              darkMode ? 'text-slate-100' : 'text-slate-900'
+                           }`}
+                        >
+                           Belay Zeleke Preparatory School
+                        </em>
+                        , before continuing my studies at{' '}
+                        <em
+                           className={`${
+                              darkMode ? 'text-slate-100' : 'text-slate-900'
+                           }`}
+                        >
+                           Debre Berhan University
+                        </em>
+                        , where I currently study Computer Science.
                      </p>
 
-                     <p
-                        className={`mt-4 text-sm md:text-base leading-7 ${
-                           darkMode ? 'text-slate-400' : 'text-slate-600'
-                        }`}
-                     >
-                        I value clean code, responsive design, continuous
-                        learning, and building software that is simple to use
-                        and meaningful to the people who use it.
+                     {/* Development */}
+                     <p className='mt-4'>
+                        My interest in technology has grown throughout my
+                        education and developed into a passion for software
+                        development. I enjoy building practical and user-focused
+                        applications using{' '}
+                        <em
+                           className={`${
+                              darkMode ? 'text-slate-100' : 'text-slate-900'
+                           }`}
+                        >
+                           React, JavaScript, Node.js, Express, Prisma, and
+                           PostgreSQL
+                        </em>
+                        , with an interest in both frontend and backend
+                        development.
+                     </p>
+
+                     {/* Cybersecurity */}
+                     <p className='mt-4'>
+                        During the summer of 2026, I am also expanding my
+                        knowledge of{' '}
+                        <em
+                           className={`${
+                              darkMode ? 'text-slate-100' : 'text-slate-900'
+                           }`}
+                        >
+                           cybersecurity and Linux
+                        </em>{' '}
+                        through the{' '}
+                        <em
+                           className={`${
+                              darkMode ? 'text-slate-100' : 'text-slate-900'
+                           }`}
+                        >
+                           DEMERA Project
+                        </em>
+                        . My focus is on practical security skills, Linux
+                        fundamentals, and continuous hands-on learning.
+                     </p>
+
+                     {/* Professional Goal */}
+                     <p className='mt-4'>
+                        I value clean code, problem solving, continuous
+                        learning, and secure design. My goal is to combine
+                        software development and cybersecurity to create
+                        practical, reliable, and secure digital solutions.
                      </p>
 
                      {/* Technologies */}
@@ -178,10 +240,22 @@ const About = ({ darkMode }) => {
                         {technologies.map((technology) => (
                            <span
                               key={technology}
-                              className={`px-2.5 py-1 rounded-md text-[10px] font-medium border transition-colors ${
+                              className={`px-3 py-1.5 rounded-md text-xs md:text-sm font-normal italic border transition-all duration-300 ${
                                  darkMode
-                                    ? 'bg-slate-800/70 text-slate-300 border-slate-700'
-                                    : 'bg-slate-50 text-slate-600 border-slate-200'
+                                    ? `
+                bg-slate-700/70
+                text-slate-300
+                border-slate-600
+                hover:bg-slate-600
+                hover:text-slate-100
+              `
+                                    : `
+                bg-slate-50
+                text-slate-600
+                border-slate-200
+                hover:bg-white
+                hover:text-slate-900
+              `
                               }`}
                            >
                               {technology}

@@ -2,18 +2,20 @@ import React from 'react';
 
 const Resume = ({ darkMode }) => {
    const experiences = [
-      {
-         years: '2026 - Present',
-         title: 'Graphic Designer & Web Developer',
-         company: 'Self-Employed',
-         description:
-            'Designing logos, social media posts, posters, and developing websites.',
-         achievements: [
-            'Full-Stack Development',
-            'Responsive Web Design',
-            'Graphic Design',
-         ],
-      },
+  {
+    years: '2026 - Present',
+    title: 'Graphic Designer & Video Editor',
+    company: 'Self-Employed',
+    description:
+      'Creating visual designs, social media content, promotional materials, and engaging video content for digital platforms.',
+    achievements: [
+      'Adobe PS',
+      'Canva Design',
+      'TikTok & YouTube Video Editing',
+      'Social Media Content Creation',
+    ],
+  },
+
       {
          years: '2025 for 3 months',
          title: 'Internship at OFAG',
@@ -50,7 +52,7 @@ const Resume = ({ darkMode }) => {
 
    const educations = [
       {
-         years: '2022 - Present',
+         years: '2023 - Present',
          degree: 'Bachelor of Science in Computer Science',
          institution: 'Debre Berhan University',
          description:
@@ -59,9 +61,9 @@ const Resume = ({ darkMode }) => {
          isPrimary: true,
       },
       {
-         years: '2020 - 2022',
+         years: '2019 - 2022',
          degree: 'Preparatory Education',
-         institution: 'Preparatory School',
+         institution: ' Belay Zeleke Preparatory School',
          description:
             'Completed preparatory education with a strong academic foundation.',
          honors: 'Completed with good academic standing.',
@@ -71,18 +73,18 @@ const Resume = ({ darkMode }) => {
 
    const certifications = [
       {
-         name: 'Android Development and Fundamentals of AI and Machine Learning',
+         name: 'Android Development  ',
          provider: '5M-ETHIOPIAN CODERS',
-         year: '2026',
+         year: '2024',
       },
       {
-         name: 'React Development',
-         provider: 'Coursera',
-         year: '2026',
+         name: 'Fundamentals of AI and Machine Learning',
+         provider: '5M-ETHIOPIAN CODERS',
+         year: '2024',
       },
       {
-         name: 'Google Digital Marketing',
-         provider: 'Google',
+         name: ' Cybersucurity',
+         provider: 'DEMER Proeject',
          year: '2026',
       },
    ];
